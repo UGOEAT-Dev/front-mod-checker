@@ -1,9 +1,14 @@
 <?php
 
+define('ENV_FILE', '.env');
+
 ///////////////////////////////////////
 
-define('ENV_FILE', '.env');
-define('PREVIEW_URL', 'https://preview.ugoeatonline.com');
+loadEnv(ENV_FILE);
+
+///////////////////////////////////////
+
+define('PREVIEW_URL', env('PREVIEW_URL', ''));
 
 ///////////////////////////////////////
 
@@ -23,8 +28,6 @@ function env(string $key, $default = null) {
 }
 
 /////////////////////////////////////
-
-loadEnv(ENV_FILE);
 
 /**
  * Differents values are: production, development, maintenance
